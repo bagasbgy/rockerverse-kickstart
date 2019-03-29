@@ -2,14 +2,14 @@ FROM rocker/verse
 
 MAINTAINER R. Dimas Bagas Herlambang <bagasbgy@gmail.com>
 
-COPY addusers.sh /
-COPY users.csv /
+COPY sh/add-users.sh /
+COPY data/users.csv /
 
 RUN apt update
 RUN apt install -y whois
 
-RUN chmod 777 /addusers.sh
-RUN /addusers.sh
-RUN rm addusers.sh users.csv
+RUN chmod 777 /add-users.sh
+RUN /add-users.sh
+RUN rm add-users.sh users.csv
 
 RUN usermod -aG sudo admin
